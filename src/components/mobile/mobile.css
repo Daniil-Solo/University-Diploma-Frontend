@@ -1,0 +1,25 @@
+.message{
+    width: 200px;
+    padding: 4px 12px;
+    border-radius: 8px;
+}
+.bot-message{
+    background-color: #fff;
+    margin-right: auto;
+    border-bottom-left-radius: 0;
+}
+.user-message{
+    background-color: #E9F6FF;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+}
+.message-container{
+    display: flex;
+    padding: 0 16px;
+}
+.mobile-form-header{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

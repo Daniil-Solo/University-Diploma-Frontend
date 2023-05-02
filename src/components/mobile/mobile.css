@@ -23,3 +23,33 @@
     flex-direction: column;
     gap: 4px;
 }
+.mobile-form-button-container{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mobile-form-selects{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+.select{
+    border-radius: 4px;
+    width: 200px;
+    height: 20px;
+}
+.select-block{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.select-title{
+    text-align: center;
+}

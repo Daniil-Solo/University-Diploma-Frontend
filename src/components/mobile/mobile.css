@@ -1,46 +1,39 @@
-.message{
-    width: 200px;
-    padding: 4px 12px;
-    border-radius: 8px;
+.mobile-form{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 8px;
 }
-.bot-message{
-    background-color: #fff;
-    margin-right: auto;
-    border-bottom-left-radius: 0;
-}
-.user-message{
-    background-color: #E9F6FF;
-    margin-left: auto;
-    border-bottom-right-radius: 0;
+.mobile-form__header{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 .message-container{
     display: flex;
     padding: 0 16px;
 }
-.mobile-form-header{
-    margin-top: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.message-container__text{
+    width: 200px;
+    padding: 4px 12px;
+    border-radius: 8px;
 }
-.mobile-form-button-container{
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.message-container__text_bot{
+    background-color: #fff;
+    margin-right: auto;
+    border-bottom-left-radius: 0;
 }
-.mobile-form-selects{
-    margin-top: 32px;
+.message-container__text_user{
+    background-color: #E9F6FF;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+}
+.mobile-form__main{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 16px;
-}
-.select{
-    border-radius: 4px;
-    width: 200px;
-    height: 20px;
 }
 .select-block{
     margin-top: 8px;
@@ -50,6 +43,11 @@
     justify-content: center;
     gap: 8px;
 }
-.select-title{
+.select-block__select{
+    border-radius: 4px;
+    width: 200px;
+    height: 20px;
+}
+.select-block__title{
     text-align: center;
 }

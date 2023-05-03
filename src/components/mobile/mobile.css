@@ -7,16 +7,17 @@
 .mobile-form__header{
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 .message-container{
     display: flex;
     padding: 0 16px;
 }
 .message-container__text{
-    width: 200px;
+    width: 220px;
     padding: 4px 12px;
     border-radius: 8px;
+    font-size: 18px;
 }
 .message-container__text_bot{
     background-color: #fff;
@@ -44,10 +45,10 @@
     gap: 8px;
 }
 .select-block__select{
-    border-radius: 4px;
     width: 200px;
-    height: 20px;
+    font-size: 14px;
 }
 .select-block__title{
     text-align: center;
+    font-size: 18px;
 }

@@ -1,8 +1,12 @@
-import { ReactNode } from 'react'
 import "./mobile.css"
 import Button from '../UI/Button/Button'
+import Select from 'react-select'
+import { FormProps } from "../../types/options"
 
-const MobileForm: React.FC = () => {
+
+const MobileForm: React.FC<FormProps> = (props) => {
+    const {facultyOptions, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession} = props
+
     return (
         <div className='mobile-form'>
             <div className='mobile-form__header'>
@@ -22,22 +26,19 @@ const MobileForm: React.FC = () => {
                     <p className='select-block__title'>
                         Твой факультет?
                     </p>
-                    <select className='select-block__select'>
-                    </select>
+                    <Select className='select-block__select' options={facultyOptions} placeholder="Не выбран" value={faculty} onChange={(selectedOption) => setFaculty(selectedOption)}/>
                 </div>
                 <div className="select-block">
                     <p className='select-block__title'>
                         Твое направление?
                     </p>
-                    <select className='select-block__select'>
-                    </select>
+                    <Select className='select-block__select' options={specializationOptions} isDisabled={isSpecializationDisabled} placeholder="Не выбрано" value={specialization} onChange={(selectedOption) => setSpecialization(selectedOption)}/>
                 </div>
                 <div className="select-block">
                     <p className='select-block__title'>
                         Интересуемая профессия?
                     </p>
-                    <select className='select-block__select'>
-                    </select>
+                    <Select className='select-block__select' options={professionOptions} isDisabled={isProfessionDisabled} placeholder="Не выбрана" value={profession} onChange={(selectedOption) => setProfession(selectedOption)}/>
                 </div>
                 <Button title='Готово' handleClick={(e) => e.preventDefault()}/>
             </div>

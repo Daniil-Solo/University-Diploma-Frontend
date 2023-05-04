@@ -1,0 +1,19 @@
+.btn{
+    background-color: #9DD4FE;
+    padding: 4px 16px;
+    border-radius: 4px;
+    font-size: 18px;
+    min-width: 100px;
+}
+.btn:hover{
+    background-color: #7dc5fc;
+}
+.btn:active{
+    outline: solid 2px #2684FF;
+}
+.btn[disabled]{
+    color: #d2d5db;
+    background: #6c7589;
+    cursor: not-allowed;
+    outline: none;
+}

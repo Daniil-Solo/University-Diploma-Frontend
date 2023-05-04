@@ -5,18 +5,20 @@ type Option = {
 
 type OptionOrNull = Option | null
 
+type SetOption = (option: OptionOrNull) => void
+
 type FormProps = {
     facultyOptions: Array<Option>,
     faculty: OptionOrNull,
-    setFaculty: React.Dispatch<React.SetStateAction<OptionOrNull>>,
+    setFaculty: SetOption,
     specializationOptions: Array<Option>,
     isSpecializationDisabled: boolean,
     specialization: OptionOrNull,
-    setSpecialization: React.Dispatch<React.SetStateAction<OptionOrNull>>,
+    setSpecialization: SetOption,
     professionOptions: Array<Option>,
     isProfessionDisabled: boolean,
     profession: OptionOrNull,
-    setProfession: React.Dispatch<React.SetStateAction<OptionOrNull>>
+    setProfession: SetOption
 }
 
-export type {Option, OptionOrNull, FormProps};
+export type {Option, OptionOrNull, FormProps, SetOption};

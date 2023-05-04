@@ -40,7 +40,7 @@ const MobileForm: React.FC<FormProps> = (props) => {
                     </p>
                     <Select className='select-block__select' options={professionOptions} isDisabled={isProfessionDisabled} placeholder="Не выбрана" value={profession} onChange={(selectedOption) => setProfession(selectedOption)}/>
                 </div>
-                <Button title='Готово' handleClick={(e) => e.preventDefault()}/>
+                <Button title='Готово' handleClick={(e) => console.log(e)} isDisabled={faculty === null || specialization === null || profession === null} />
             </div>
         </div>
         

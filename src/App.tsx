@@ -3,24 +3,28 @@ import BasicLayout from './layouts/BasicLayout';
 import MobileForm from './components/mobile/MobileForm';
 import MobileResult from './components/mobile/MobileResult';
 import { Option, OptionOrNull, SetOption } from './types/options';
+import { ElectiveGroup } from './types/electives';
 import { getSpecializationsByFaculty, getProfessionsBySpecializtion, getFaculties } from './api/OrganizationStructure';
 
 function App() {
   const [facultyOptions, setFacultyOptions] = useState<Array<Option>>([]);
   const [faculty, setFaculty] = useState<OptionOrNull>(null);
+  const [isFacultyDisabled, setIsFacultyDisabled] = useState(true);
   const [specializationOptions, setSpecializationOptions] = useState<Array<Option>>([]);
   const [isSpecializationDisabled, setIsSpecializationDisabled] = useState(true);
   const [specialization, setSpecialization] = useState<OptionOrNull>(null);
   const [professionOptions, setProfessionOptions] = useState<Array<Option>>([]);
   const [isProfessionDisabled, setIsProfessionDisabled] = useState(true);
   const [profession, setProfession] = useState<OptionOrNull>(null);
-  const [isMobileFrom, setIsMobileForm] = useState<boolean>(true);
+  const [isMobileForm, setIsMobileForm] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [electiveGroups, setElectiveGroups] = useState<Array<ElectiveGroup>>([]); 
 
   useEffect(() => {
     const getData = async () => {
       try{
         const facultyOptions = await getFaculties()
+        setIsFacultyDisabled(false)
         setFacultyOptions(facultyOptions)
       } catch(error){
         alert((error as Error).message)
@@ -59,9 +63,22 @@ function App() {
 
   const showResults = () => {
     setIsLoading(true)
+    setIsFacultyDisabled(true)
+    setIsSpecializationDisabled(true)
+    setIsProfessionDisabled(true)
 
-    setIsMobileForm(false)
+    try {
+      const electiveGroupsResults = [{name: "Профессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}, {name: "Общепрофессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}]
+      setElectiveGroups(electiveGroupsResults)
+      setIsMobileForm(false)
+    } catch (error) {
+      alert((error as Error).message)
+    }
+
     setIsLoading(false)
+    setIsFacultyDisabled(false)
+    setIsSpecializationDisabled(false)
+    setIsProfessionDisabled(false)
   }
 
   const backToForm = () => {
@@ -71,10 +88,10 @@ function App() {
   return (
     <BasicLayout>
       {
-        isMobileFrom?
-        <MobileForm goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
+        isMobileForm?
+        <MobileForm goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} isFacultyDisabled={isFacultyDisabled} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
         :
-        <MobileResult goBack={backToForm} electiveGroups={[{name: "Профессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}, {name: "Общепрофессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}]}/>
+        <MobileResult goBack={backToForm} electiveGroups={electiveGroups}/>
       }
     </BasicLayout>
   );

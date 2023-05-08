@@ -16,4 +16,4 @@ type ElectiveGroupProps = {
     electiveGroup: ElectiveGroup
 }
 
-export type {ResultProps, ElectiveGroupProps}
+export type {ResultProps, ElectiveGroupProps, ElectiveGroup}

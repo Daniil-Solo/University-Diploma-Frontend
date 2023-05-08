@@ -9,7 +9,8 @@ type ElectiveGroup = {
 }
 
 type ResultProps = {
-    electiveGroups: ElectiveGroup[]
+    electiveGroups: ElectiveGroup[],
+    goBack: () => void
 }
 type ElectiveGroupProps = {
     electiveGroup: ElectiveGroup

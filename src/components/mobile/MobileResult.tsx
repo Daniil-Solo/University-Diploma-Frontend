@@ -4,7 +4,7 @@ import ElectiveGroupView from "./ElectiveGroupView"
 import { ResultProps } from "../../types/electives"
 
 const MobileResult: React.FC<ResultProps> = (props) => {
-    const {electiveGroups} = props
+    const {electiveGroups, goBack} = props
     return (
         <div className='mobile-form mobile-form_gap16'>
             <div className='mobile-form__header'>
@@ -26,7 +26,7 @@ const MobileResult: React.FC<ResultProps> = (props) => {
                 </div>
             </div>
             <div className='mobile-form__main'>
-                <Button title='Назад' handleClick={(e) => console.log(e)} />
+                <Button title='Назад' handleClick={goBack} />
             </div>
         </div>
     )

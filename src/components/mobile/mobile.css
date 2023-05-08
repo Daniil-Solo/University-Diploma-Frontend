@@ -4,6 +4,9 @@
     gap: 32px;
     padding-top: 8px;
 }
+.mobile-form_gap16{
+    gap: 16px;
+}
 .mobile-form__header{
     display: flex;
     flex-direction: column;
@@ -11,6 +14,8 @@
 }
 .message-container{
     display: flex;
+    flex-direction: column;
+    gap: 8px;
     padding: 0 16px;
 }
 .message-container__text{
@@ -51,4 +56,11 @@
 .select-block__title{
     text-align: center;
     font-size: 18px;
+}
+.electives{
+    padding-left: 20px;
+}
+.electives__item{
+    list-style: square;
+    margin-top: 4px;
 }

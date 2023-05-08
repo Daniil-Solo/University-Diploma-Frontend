@@ -56,6 +56,10 @@ function App() {
     }
   }
 
+  const showResults = () => {
+    setIsMobileForm(false)
+  }
+
   const backToForm = () => {
     setIsMobileForm(true)
   }
@@ -64,7 +68,7 @@ function App() {
     <BasicLayout>
       {
         isMobileFrom?
-        <MobileForm facultyOptions={facultyOptions} faculty={faculty} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
+        <MobileForm goToResults={showResults} facultyOptions={facultyOptions} faculty={faculty} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
         :
         <MobileResult goBack={backToForm} electiveGroups={[{name: "Профессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}, {name: "Общепрофессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}]}/>
       }

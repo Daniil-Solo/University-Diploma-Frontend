@@ -5,7 +5,7 @@ import { FormProps } from "../../types/options"
 
 
 const MobileForm: React.FC<FormProps> = (props) => {
-    const {facultyOptions, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession} = props
+    const {facultyOptions, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession, goToResults} = props
 
     return (
         <div className='mobile-form'>
@@ -40,7 +40,7 @@ const MobileForm: React.FC<FormProps> = (props) => {
                     </p>
                     <Select className='select-block__select' options={professionOptions} isDisabled={isProfessionDisabled} placeholder="Не выбрана" value={profession} onChange={(selectedOption) => setProfession(selectedOption)}/>
                 </div>
-                <Button title='Готово' handleClick={(e) => console.log(e)} isDisabled={faculty === null || specialization === null || profession === null} />
+                <Button title='Готово' handleClick={goToResults} isDisabled={faculty === null || specialization === null || profession === null} />
             </div>
         </div>
         

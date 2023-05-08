@@ -9,6 +9,7 @@ type SetOption = (option: OptionOrNull) => void
 
 type FormProps = {
     facultyOptions: Array<Option>,
+    isFacultyDisabled: boolean,
     faculty: OptionOrNull,
     setFaculty: SetOption,
     specializationOptions: Array<Option>,

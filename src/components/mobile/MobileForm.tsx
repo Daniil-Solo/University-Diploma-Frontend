@@ -6,7 +6,7 @@ import Loader from "../UI/Loader/Loader"
 
 
 const MobileForm: React.FC<FormProps> = (props) => {
-    const {facultyOptions, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession, goToResults, isLoading} = props
+    const {facultyOptions, isFacultyDisabled, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession, goToResults, isLoading} = props
 
     return (
         <div className='mobile-form'>
@@ -27,7 +27,7 @@ const MobileForm: React.FC<FormProps> = (props) => {
                     <p className='select-block__title'>
                         Твой факультет?
                     </p>
-                    <Select className='select-block__select' options={facultyOptions} placeholder="Не выбран" value={faculty} onChange={(selectedOption) => setFaculty(selectedOption)}/>
+                    <Select className='select-block__select' isDisabled={isFacultyDisabled} options={facultyOptions} placeholder="Не выбран" value={faculty} onChange={(selectedOption) => setFaculty(selectedOption)}/>
                 </div>
                 <div className="select-block">
                     <p className='select-block__title'>

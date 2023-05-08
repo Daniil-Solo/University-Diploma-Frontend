@@ -19,7 +19,8 @@ type FormProps = {
     isProfessionDisabled: boolean,
     profession: OptionOrNull,
     setProfession: SetOption,
-    goToResults: () => void
+    goToResults: () => void,
+    isLoading: boolean
 }
 
 export type {Option, OptionOrNull, FormProps, SetOption};

@@ -2,10 +2,11 @@ import "./mobile.css"
 import Button from '../UI/Button/Button'
 import Select from 'react-select'
 import { FormProps } from "../../types/options"
+import Loader from "../UI/Loader/Loader"
 
 
 const MobileForm: React.FC<FormProps> = (props) => {
-    const {facultyOptions, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession, goToResults} = props
+    const {facultyOptions, specializationOptions, isSpecializationDisabled, professionOptions, isProfessionDisabled, faculty, setFaculty, specialization, setSpecialization, profession, setProfession, goToResults, isLoading} = props
 
     return (
         <div className='mobile-form'>
@@ -40,7 +41,12 @@ const MobileForm: React.FC<FormProps> = (props) => {
                     </p>
                     <Select className='select-block__select' options={professionOptions} isDisabled={isProfessionDisabled} placeholder="Не выбрана" value={profession} onChange={(selectedOption) => setProfession(selectedOption)}/>
                 </div>
-                <Button title='Готово' handleClick={goToResults} isDisabled={faculty === null || specialization === null || profession === null} />
+                {
+                    isLoading?
+                    <Loader/>
+                    :
+                    <Button title='Готово' handleClick={goToResults} isDisabled={faculty === null || specialization === null || profession === null} />
+                }
             </div>
         </div>
         

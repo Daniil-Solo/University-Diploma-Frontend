@@ -15,6 +15,7 @@ function App() {
   const [isProfessionDisabled, setIsProfessionDisabled] = useState(true);
   const [profession, setProfession] = useState<OptionOrNull>(null);
   const [isMobileFrom, setIsMobileForm] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -57,7 +58,10 @@ function App() {
   }
 
   const showResults = () => {
+    setIsLoading(true)
+
     setIsMobileForm(false)
+    setIsLoading(false)
   }
 
   const backToForm = () => {
@@ -68,7 +72,7 @@ function App() {
     <BasicLayout>
       {
         isMobileFrom?
-        <MobileForm goToResults={showResults} facultyOptions={facultyOptions} faculty={faculty} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
+        <MobileForm goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
         :
         <MobileResult goBack={backToForm} electiveGroups={[{name: "Профессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}, {name: "Общепрофессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}]}/>
       }

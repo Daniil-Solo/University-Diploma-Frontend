@@ -1,9 +1,10 @@
-header{
+.header{
     background-color: #9DD4FE;
 }
-.logo-container{
+.logo{
     padding: 8px 16px;
 }
-.logo{
+.logo__text{
     font-weight: 900;
+    font-size: 18px;
 }

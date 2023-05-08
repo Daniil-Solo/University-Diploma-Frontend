@@ -8,9 +8,9 @@ type BasicLayoutProps = {
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     return (
         <>
-            <header>
-                <div className='logo-container'>
-                    <span className="logo">ЕТИС</span>
+            <header className='header'>
+                <div className='logo'>
+                    <span className="logo__text">ПГНИУ</span>
                 </div>
             </header>
             <main>

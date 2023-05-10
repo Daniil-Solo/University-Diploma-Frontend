@@ -5,6 +5,7 @@ import MobileResult from './components/mobile/MobileResult';
 import { Option, OptionOrNull, SetOption } from './types/options';
 import { ElectiveGroup } from './types/electives';
 import { getSpecializationsByFaculty, getProfessionsBySpecializtion, getFaculties } from './api/OrganizationStructure';
+import { getElectiveGroups } from './api/RankingOfElectives';
 
 function App() {
   const [facultyOptions, setFacultyOptions] = useState<Array<Option>>([]);
@@ -61,14 +62,14 @@ function App() {
     }
   }
 
-  const showResults = () => {
+  const showResults = async () => {
     setIsLoading(true)
     setIsFacultyDisabled(true)
     setIsSpecializationDisabled(true)
     setIsProfessionDisabled(true)
 
     try {
-      const electiveGroupsResults = [{name: "Профессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}, {name: "Общепрофессиональные", items: [{title: "Базы данных", id: 1}, {title: "Базы данных", id: 2}, {title: "Базы данных", id: 3}]}]
+      const electiveGroupsResults = await getElectiveGroups(specialization, profession)
       setElectiveGroups(electiveGroupsResults)
       setIsMobileForm(false)
     } catch (error) {

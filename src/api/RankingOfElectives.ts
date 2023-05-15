@@ -1,4 +1,5 @@
 import { GetElectiveGroups } from "../types/ranking-of-electives"
+import { ElectiveGroup } from "../types/electives"
 import instance from "./axios-instance"
 
 
@@ -16,7 +17,9 @@ const getElectiveGroups: GetElectiveGroups = async (specialization, profession) 
                 profession_id: profession.value
             }
         })
-        return response.data
+        return (response.data as Array<ElectiveGroup>).map(item => {
+            return item
+        })
     } catch(e){
         console.log(e)
         throw new Error("Произошла сетевая ошибка")

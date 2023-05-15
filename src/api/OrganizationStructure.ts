@@ -1,11 +1,14 @@
 import { GetOptionsByOption, GetOptions } from "../types/organization-structure"
+import { Option } from "../types/options"
 import instance from "./axios-instance"
 
 
 const getFaculties: GetOptions = async () => {
     try{
         const response = await instance.get("structure/faculties/")
-        return response.data
+        return (response.data as Array<Option>).map(item => {
+            return item
+        })
     } catch(e){
         console.log(e)
         throw new Error("Произошла сетевая ошибка")
@@ -22,7 +25,9 @@ const getSpecializationsByFaculty: GetOptionsByOption = async (faculty) => {
                 faculty_id: faculty.value
             }
         })
-        return response.data
+        return (response.data as Array<Option>).map(item => {
+            return item
+        })
     } catch(e){
         console.log(e)
         throw new Error("Произошла сетевая ошибка")
@@ -39,7 +44,9 @@ const getProfessionsBySpecializtion: GetOptionsByOption = async (specialization)
                 specialization_id: specialization.value
             }
         })
-        return response.data
+        return (response.data as Array<Option>).map(item => {
+            return item
+        })
     } catch(e){
         console.log(e)
         throw new Error("Произошла сетевая ошибка")

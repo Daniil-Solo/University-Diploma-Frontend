@@ -1,0 +1,44 @@
+.desktop-view{
+    margin: 128px auto;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.desktop-form-blocks{
+    display: flex;
+    gap: 8px;
+}
+.desktop-form-blocks__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.button-block{
+    margin-bottom: 5px;
+}
+.desktop-view__header{
+    font-size: 20px;
+}
+.desktop-results{
+    display: flex;
+    gap: 16px;
+}
+.desktop-results__column{
+    padding: 8px 8px 8px 24px;
+    border-radius: 8px;
+    background-color: #fff;
+    flex: 1 1 0;
+}
+.desktop-elective-group{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.desktop-elective-group__name{
+    font-size: 18px;
+    text-align: center;
+}

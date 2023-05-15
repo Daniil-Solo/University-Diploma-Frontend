@@ -1,3 +1,6 @@
+import {ElectiveGroup} from './electives'
+
+
 type Option = {
     label: string,
     value: string
@@ -24,4 +27,8 @@ type FormProps = {
     isLoading: boolean
 }
 
-export type {Option, OptionOrNull, FormProps, SetOption};
+type DesktopProps = FormProps & {
+    electiveGroups: ElectiveGroup[],
+}
+
+export type {Option, OptionOrNull, FormProps, SetOption, DesktopProps};

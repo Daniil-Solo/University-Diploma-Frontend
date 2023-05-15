@@ -9,7 +9,7 @@ import { ElectiveGroup } from './types/electives';
 import { getSpecializationsByFaculty, getProfessionsBySpecializtion, getFaculties } from './api/OrganizationStructure';
 import { getElectiveGroups } from './api/RankingOfElectives';
 import DesktopView from './components/desktop/DesktopView';
-import {BrowserView, MobileView} from 'react-device-detect';
+import {isMobile} from 'react-device-detect';
 
 function App() {
   const [facultyOptions, setFacultyOptions] = useState<Array<Option>>([]);
@@ -118,17 +118,15 @@ function App() {
         theme="light"
         transition={Slide}
       />
-      <BrowserView>
-        <DesktopView goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} isFacultyDisabled={isFacultyDisabled} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession} electiveGroups={electiveGroups}/>
-      </BrowserView>
-      <MobileView>
       {
-        isMobileForm?
-          <MobileForm goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} isFacultyDisabled={isFacultyDisabled} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
+        isMobile?
+          isMobileForm?
+            <MobileForm goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} isFacultyDisabled={isFacultyDisabled} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>
+          :
+            <MobileResult goBack={backToForm} electiveGroups={electiveGroups}/>
         :
-          <MobileResult goBack={backToForm} electiveGroups={electiveGroups}/>
+        <DesktopView goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} isFacultyDisabled={isFacultyDisabled} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession} electiveGroups={electiveGroups}/>
       }
-      </MobileView>
     </BasicLayout>
   );
 }

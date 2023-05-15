@@ -1,4 +1,4 @@
-import { ElectiveGroupProps } from "../../types/electives"
+import { ElectiveGroupProps } from "../../types/component-props"
 
 const ElectiveGroupView: React.FC<ElectiveGroupProps> = (props) => {
     const {electiveGroup} = props

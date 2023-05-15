@@ -1,7 +1,7 @@
 import "./mobile.css"
 import Button from '../UI/Button/Button'
 import ElectiveGroupView from "./ElectiveGroupView"
-import { ResultProps } from "../../types/electives"
+import { ResultProps } from "../../types/component-props"
 
 const MobileResult: React.FC<ResultProps> = (props) => {
     const {electiveGroups, goBack} = props

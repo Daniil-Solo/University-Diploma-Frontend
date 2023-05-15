@@ -1,4 +1,4 @@
-import { GetElectiveGroups } from "../types/ranking-of-electives"
+import { GetElectiveGroups } from "../types/api-types"
 import { ElectiveGroup } from "../types/electives"
 import instance from "./axios-instance"
 

@@ -1,7 +1,7 @@
 import "./desktop.css"
 import Button from '../UI/Button/Button'
 import Select from 'react-select'
-import { DesktopProps } from "../../types/options"
+import { DesktopProps } from "../../types/component-props"
 import Loader from "../UI/Loader/Loader"
 import ElectiveGroupView from "./ElectiveGroupView"
 

@@ -1,4 +1,4 @@
-import { GetOptionsByOption, GetOptions } from "../types/organization-structure"
+import { GetOptionsByOption, GetOptions } from "../types/api-types"
 import { Option } from "../types/options"
 import instance from "./axios-instance"
 

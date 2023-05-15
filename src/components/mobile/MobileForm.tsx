@@ -1,7 +1,7 @@
 import "./mobile.css"
 import Button from '../UI/Button/Button'
 import Select from 'react-select'
-import { FormProps } from "../../types/options"
+import { FormProps } from "../../types/component-props"
 import Loader from "../UI/Loader/Loader"
 
 

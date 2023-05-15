@@ -1,3 +1,6 @@
 body{
     background-color: #DBF0FF;
 }
+html, body{
+    font-family: sans-serif;
+}

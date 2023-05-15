@@ -8,12 +8,4 @@ type ElectiveGroup = {
     items: Elective[]
 }
 
-type ResultProps = {
-    electiveGroups: ElectiveGroup[],
-    goBack: () => void
-}
-type ElectiveGroupProps = {
-    electiveGroup: ElectiveGroup
-}
-
-export type {ResultProps, ElectiveGroupProps, ElectiveGroup}
+export type {ElectiveGroup}

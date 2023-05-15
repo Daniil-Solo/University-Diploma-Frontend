@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import BasicLayout from './layouts/BasicLayout';
 import MobileForm from './components/mobile/MobileForm';
 import MobileResult from './components/mobile/MobileResult';
@@ -28,11 +30,24 @@ function App() {
         setIsFacultyDisabled(false)
         setFacultyOptions(facultyOptions)
       } catch(error){
-        alert((error as Error).message)
+        showWarning((error as Error).message)
       }
     }
     getData()
   }, [])
+
+  const showWarning = (message: string): void => {
+    toast(message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
 
   const setFacultyWithAsyncLoading: SetOption = async (faculty) => {
     setSpecialization(null)
@@ -45,7 +60,7 @@ function App() {
       setIsSpecializationDisabled(false)
       setSpecializationOptions(specializationOptions)
     } catch (error) {
-      alert((error as Error).message)
+      showWarning((error as Error).message)
     }
   }
 
@@ -58,7 +73,7 @@ function App() {
       setIsProfessionDisabled(false)
       setProfessionOptions(professionOptions)
     } catch (error) {
-      alert((error as Error).message)
+      showWarning((error as Error).message)
     }
   }
 
@@ -73,7 +88,7 @@ function App() {
       setElectiveGroups(electiveGroupsResults)
       setIsMobileForm(false)
     } catch (error) {
-      alert((error as Error).message)
+      showWarning((error as Error).message)
     }
 
     setIsLoading(false)
@@ -88,6 +103,19 @@ function App() {
 
   return (
     <BasicLayout>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Slide}
+      />
       {
         isMobileForm?
         <MobileForm goToResults={showResults} isLoading={isLoading} facultyOptions={facultyOptions} faculty={faculty} isFacultyDisabled={isFacultyDisabled} setFaculty={setFacultyWithAsyncLoading} specializationOptions={specializationOptions} isSpecializationDisabled={isSpecializationDisabled} specialization={specialization} setSpecialization={setSpecializationWithAsyncLoading} professionOptions={professionOptions} isProfessionDisabled={isProfessionDisabled} profession={profession} setProfession={setProfession}/>

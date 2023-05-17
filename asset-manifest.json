@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/University-Diploma-Frontend/static/css/main.aae26725.css",
+    "main.js": "/University-Diploma-Frontend/static/js/main.477ed9eb.js",
+    "index.html": "/University-Diploma-Frontend/index.html",
+    "main.aae26725.css.map": "/University-Diploma-Frontend/static/css/main.aae26725.css.map",
+    "main.477ed9eb.js.map": "/University-Diploma-Frontend/static/js/main.477ed9eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aae26725.css",
+    "static/js/main.477ed9eb.js"
+  ]
+}

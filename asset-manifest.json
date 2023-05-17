@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/University-Diploma-Frontend/static/css/main.aae26725.css",
-    "main.js": "/University-Diploma-Frontend/static/js/main.477ed9eb.js",
+    "main.js": "/University-Diploma-Frontend/static/js/main.92c1744f.js",
     "index.html": "/University-Diploma-Frontend/index.html",
     "main.aae26725.css.map": "/University-Diploma-Frontend/static/css/main.aae26725.css.map",
-    "main.477ed9eb.js.map": "/University-Diploma-Frontend/static/js/main.477ed9eb.js.map"
+    "main.92c1744f.js.map": "/University-Diploma-Frontend/static/js/main.92c1744f.js.map"
   },
   "entrypoints": [
     "static/css/main.aae26725.css",
-    "static/js/main.477ed9eb.js"
+    "static/js/main.92c1744f.js"
   ]
 }
